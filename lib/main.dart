@@ -27,7 +27,7 @@ class MyHomePage extends StatefulWidget {
   InvoiceItems invoiceItemsList = new InvoiceItems();
 
   void addItemToInvoice(ProductItem item){
-    //invoiceItemsList.AddItem(item);
+    invoiceItemsList.AddItem(item);
   }
   
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -93,7 +93,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: new Container(
                           margin: const EdgeInsets.all(10.0),
                           color: Theme.of(context).cardColor,
-                          child: InvoiceItems(),
+                          child: widget.invoiceItemsList,
                         ))
                   ],
                 )),

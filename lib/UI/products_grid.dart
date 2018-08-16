@@ -18,10 +18,6 @@ class ProductsGrid extends StatefulWidget{
 
 class ProductsGridState extends State<ProductsGrid>{
 
-  void productAdd(ProductItem item){
-    //add
-  }
-
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -30,7 +26,7 @@ class ProductsGridState extends State<ProductsGrid>{
       crossAxisCount: 4,
       // Generate 100 Widgets that display their index in the List
       children: List.generate(widget.currentProducts.length, (index) {
-        widget.currentProducts[index].onTap = productAdd;
+        widget.currentProducts[index].onTap = widget.addItemToInvoice;
         return widget.currentProducts[index];
       }),
     );
