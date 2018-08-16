@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:innovation_day_pos/UI/product_item.dart';
+import 'package:innovation_day_pos/UI/products_grid.dart';
 
 void main() => runApp(new MyApp());
 
@@ -10,15 +12,10 @@ class MyApp extends StatelessWidget {
     return new MaterialApp(
       title: 'Flutter Demo',
       theme: new ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or press Run > Flutter Hot Reload in IntelliJ). Notice that the
-        // counter didn't reset back to zero; the application is not restarted.
-        primarySwatch: Colors.blue,
+        brightness: Brightness.dark,
+        primaryColor: const Color(0xFF4484CE),
+        cardColor: const Color(0xFFD9D9D9),
+        accentColor: const Color(0xFFCDCDCD),
       ),
       home: new MyHomePage(title: 'Amilia'),
     );
@@ -68,14 +65,14 @@ class _MyHomePageState extends State<MyHomePage> {
                         flex: 6,
                         child: new Container(
                           margin: const EdgeInsets.all(10.0),
-                          color: const Color(0xFF00FF00),
-                          //child: new Text('Hello World 1'),
+                          color: Theme.of(context).cardColor,
+                          child: ProductsGrid()
                         )),
                     Expanded( // container 2: bottom-left
                         flex: 1,
                         child: new Container(
                           margin: const EdgeInsets.all(10.0),
-                          color: const Color(0xFF00FF00),
+                          color: Theme.of(context).cardColor,
                           //child: new Text('Hello World 2'),
                         ))
                   ],
@@ -88,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         flex: 6,
                         child: new Container(
                           margin: const EdgeInsets.all(10.0),
-                          color: const Color(0xFF00FF00),
+                          color: Theme.of(context).cardColor,
                           child: InvoiceItems(),
                         ))
                   ],
