@@ -30,6 +30,13 @@ class MyHomePage extends StatefulWidget {
     invoiceItemsList.AddItem(item);
   }
   
+  int activeButtonIndex = 0;
+  List<TapboxA> listButtons = [ new TapboxA('images/Register.png'),
+                                new TapboxA('images/Memberships.png'),
+                                new TapboxA('images/Merchandise.png'),
+                                new TapboxA('images/Facility.png'),
+                                new TapboxA('images/Fundraising.png'),];
+
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -77,9 +84,29 @@ class _MyHomePageState extends State<MyHomePage> {
                         )),
                     Expanded( // container 2: bottom-left
                         flex: 1,
-                        child: new Container(
-                          margin: const EdgeInsets.all(10.0),
-                          color: Theme.of(context).cardColor,
+                        child: Row(
+                          children: <Widget>[
+                            Expanded(
+                              flex: 1,
+                              child: widget.listButtons[0],
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: widget.listButtons[1],
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: widget.listButtons[2],
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: widget.listButtons[3],
+                            ),
+                            Expanded(
+                              flex: 1,
+                              child: widget.listButtons[4],
+                            ),
+                          ]
                           //child: new Text('Hello World 2'),
                         ))
                   ],
@@ -233,3 +260,57 @@ class InvoiceItems extends StatefulWidget {
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // end of FGG's stuff
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Alex's stuff
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+class TapboxA extends StatefulWidget {
+
+  String _imageUrl;
+
+  TapboxA(this._imageUrl);
+
+  @override
+  _TapboxAState createState() => _TapboxAState();
+}
+
+class _TapboxAState extends State<TapboxA> {
+  bool _active = false;
+  void _handleTap() {
+    setState(() {
+      _active = !_active;
+    });
+  }
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: _handleTap,
+      child: Container(
+        child: Center(
+          child: Text(
+            _active ? 'A' : 'I',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
+        ),
+        width: 200.0,
+        height: 200.0,
+        decoration: BoxDecoration(
+          color: Theme.of(context).cardColor,
+          image: new DecorationImage(
+            image: new ExactAssetImage(widget._imageUrl),
+            fit: BoxFit.fitHeight,
+          ),
+        ),
+      ),
+    );
+  }
+}
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// end of Alex's stuff
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
