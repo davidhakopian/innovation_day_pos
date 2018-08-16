@@ -13,6 +13,9 @@ class ProductItem extends StatelessWidget {
   final String _imagePath;
   void Function(ProductItem item) onTap;
 
+  get name => _name;
+  get imagePath => _imagePath;
+
   @override
   Widget build(BuildContext context) {
     return Padding(

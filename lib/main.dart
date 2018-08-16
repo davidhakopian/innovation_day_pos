@@ -102,14 +102,14 @@ class _MyHomePageState extends State<MyHomePage> {
 class InvoiceItemsState extends State<InvoiceItems> {
   @override
 
-  final _invoiceItems = <String>[];
+  final _invoiceItems = <ProductItem>[];
   final _biggerFont = const TextStyle(fontSize: 18.0);
 
-  void AddItem(String invoiceItemString)
+  void AddItem(ProductItem productItem)
   {
-    print('Adding invoice item "' + invoiceItemString + '"');
+    print('Adding invoice item product "' + productItem.name + '"');
     setState(() {
-      _invoiceItems.add(invoiceItemString);
+      _invoiceItems.add(productItem);
     });
     print('Added invoice item');
   }
@@ -137,11 +137,11 @@ class InvoiceItemsState extends State<InvoiceItems> {
     );
   }
 
-  Widget _buildInvoiceItemRow(String invoiceItemString) {
+  Widget _buildInvoiceItemRow(ProductItem invoiceItemProduct) {
     print('_buildInvoiceItemRow');
     return ListTile(
       title: Text(
-        invoiceItemString,
+        invoiceItemProduct.name,
         style: _biggerFont,
       ),
       trailing: new Icon(
@@ -150,7 +150,7 @@ class InvoiceItemsState extends State<InvoiceItems> {
       ),
       onTap: () {
         setState(() {
-          _invoiceItems.remove(invoiceItemString);
+          _invoiceItems.remove(invoiceItemProduct);
         });
       },
     );
@@ -171,8 +171,11 @@ class InvoiceItemsState extends State<InvoiceItems> {
 
   void _addInvoiceItem() {
     print('_addInvoiceItem');
-    final invoiceItemWordPair = WordPair.random();
-    AddItem(invoiceItemWordPair.asPascalCase);
+
+    final itemName = WordPair.random().asPascalCase;
+    var newItem = new ProductItem(itemName, null);
+
+    AddItem(newItem);
 
     /* THIS IS FOR SHOWING A CLIENTS SECTION MAYBE? I DUNNO
     Navigator.of(context).push(
@@ -209,7 +212,16 @@ class InvoiceItemsState extends State<InvoiceItems> {
 
 class InvoiceItems extends StatefulWidget {
   @override
-  InvoiceItemsState createState() => new InvoiceItemsState();
+  InvoiceItemsState state;
+
+  InvoiceItemsState createState() {
+    state = new InvoiceItemsState();
+    return state;
+  }
+
+  void AddItem(ProductItem productItem) {
+    state.AddItem(productItem);
+  }
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // end of FGG's stuff
