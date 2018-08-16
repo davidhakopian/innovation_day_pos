@@ -23,6 +23,13 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+
+  InvoiceItems invoiceItemsList = new InvoiceItems();
+
+  void addItemToInvoice(ProductItem item){
+    //invoiceItemsList.AddItem(item);
+  }
+  
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -66,7 +73,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         child: new Container(
                           margin: const EdgeInsets.all(10.0),
                           color: Theme.of(context).cardColor,
-                          child: ProductsGrid()
+                          child: ProductsGrid(widget.addItemToInvoice)
                         )),
                     Expanded( // container 2: bottom-left
                         flex: 1,

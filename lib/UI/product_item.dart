@@ -18,25 +18,28 @@ class ProductItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Column(
-        children: <Widget>[
-          Expanded(
-            flex: 4,
-            child: Container(
-              decoration: BoxDecoration(
-                image: new DecorationImage(
-                  image: new ExactAssetImage(_imagePath),
+    return InkWell(
+      onTap: () => onTap(this),
+      child: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              flex: 4,
+              child: Container(
+                decoration: BoxDecoration(
+                  image: new DecorationImage(
+                    image: new ExactAssetImage(_imagePath),
+                  ),
                 ),
               ),
             ),
-          ),
-          Expanded(
-            flex: 1,
-            child: Text(_name)
-          )
-        ],
+            Expanded(
+              flex: 1,
+              child: Text(_name)
+            )
+          ],
+        ),
       ),
     );
   }

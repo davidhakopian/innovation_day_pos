@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:innovation_day_pos/UI/product_item.dart';
 
 class ProductsGrid extends StatefulWidget{
-
   static ProductItem merch1 = new ProductItem('New York cap', 'images/david.jpg');
-
   static List<ProductItem> merchList = List.from([merch1]);
 
   List<ProductItem> currentProducts = List.from(merchList);
+  void Function(ProductItem item) addItemToInvoice;
+
+  ProductsGrid(this.addItemToInvoice);
 
   @override
   State<StatefulWidget> createState() {
