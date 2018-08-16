@@ -84,30 +84,33 @@ class _MyHomePageState extends State<MyHomePage> {
                         )),
                     Expanded( // container 2: bottom-left
                         flex: 1,
-                        child: Row(
-                          children: <Widget>[
-                            Expanded(
-                              flex: 1,
-                              child: widget.listButtons[0],
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: widget.listButtons[1],
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: widget.listButtons[2],
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: widget.listButtons[3],
-                            ),
-                            Expanded(
-                              flex: 1,
-                              child: widget.listButtons[4],
-                            ),
-                          ]
-                          //child: new Text('Hello World 2'),
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Row(
+                            children: <Widget>[
+                              Expanded(
+                                flex: 1,
+                                child: widget.listButtons[0],
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: widget.listButtons[1],
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: widget.listButtons[2],
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: widget.listButtons[3],
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: widget.listButtons[4],
+                              ),
+                            ]
+                            //child: new Text('Hello World 2'),
+                          ),
                         ))
                   ],
                 )),
@@ -121,7 +124,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           margin: const EdgeInsets.all(10.0),
                           color: Theme.of(context).cardColor,
                           child: widget.invoiceItemsList,
-                        ))
+                        )),
+                    Expanded(
+                      flex: 1,
+                      child: RaisedButton(
+                        child: const Text('Pay Now'),
+                        color: Theme.of(context).primaryColor,
+                        elevation: 4.0,
+                        splashColor: Theme.of(context).primaryColor,
+                      )
+                    )
                   ],
                 )),
           ],
