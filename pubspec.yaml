@@ -34,6 +34,24 @@ flutter:
   - images/Merchandise.png
   - images/Fundraising.png
   - images/Facility.png
+  - images/BaseballBat.jpg
+  - images/BaseballGlove.jpg
+  - images/BaseballHelmet.png
+  - images/BaseballShoe.jpg
+  - images/BaseballSocks.jfif
+  - images/BaseballStation(1).jfif
+  - images/BaseballStation.jpg
+  - images/FieldA.jfif
+  - images/FieldB.jfif
+  - images/FieldC.jfif
+  - images/FieldD.jfif
+  - images/FieldE.jpg
+  - images/NYcap.jfif
+  - images/NYjersey.jfif
+  - images/GirlBaseball.jpg
+  - images/Menbaseball.png
+
+
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
