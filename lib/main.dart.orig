@@ -24,12 +24,14 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
 
+<<<<<<< HEAD
   InvoiceItems invoiceItemsList = new InvoiceItems();
 
   void addItemToInvoice(ProductItem item){
     invoiceItemsList.AddItem(item);
   }
   
+=======
   int activeButtonIndex = 0;
   List<TapboxA> listButtons = [ new TapboxA('images/Register.png'),
                                 new TapboxA('images/Memberships.png'),
@@ -37,6 +39,7 @@ class MyHomePage extends StatefulWidget {
                                 new TapboxA('images/Facility.png'),
                                 new TapboxA('images/Fundraising.png'),];
 
+>>>>>>> WIP menu with icon
   MyHomePage({Key key, this.title}) : super(key: key);
 
   // This widget is the home page of your application. It is stateful, meaning
@@ -279,7 +282,6 @@ class TapboxA extends StatefulWidget {
 
 class _TapboxAState extends State<TapboxA> {
   bool _active = false;
-
   void _handleTap() {
     setState(() {
       _active = !_active;
@@ -290,6 +292,10 @@ class _TapboxAState extends State<TapboxA> {
       onTap: _handleTap,
       child: Container(
         child: Center(
+          child: Text(
+            _active ? 'A' : 'I',
+            style: TextStyle(fontSize: 32.0, color: Colors.white),
+          ),
         ),
         width: 200.0,
         height: 200.0,
